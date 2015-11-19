@@ -1,0 +1,10 @@
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+.settings
+.classpath
+.project
+.springBeans
+src/main/webapp/META-INF/context.xml

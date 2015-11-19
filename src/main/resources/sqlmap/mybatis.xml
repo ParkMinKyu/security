@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 
+		cacheEnabled	설정에서 각 mapper 에 설정된 캐시를 전역적으로 사용할지 말지에 대한 여부	true | false	true
+		lazyLoadingEnabled	늦은 로딩을 사용할지에 대한 여부. 사용하지 않는다면 모두 즉시 로딩할 것이다. 이 값은 fetchType 속성을 사용해서 대체할 수 있다.	true | false	false
+		aggressiveLazyLoading	활성화 상태로 두게 되면 늦은(lazy) 로딩 프로퍼티를 가진 객체는 호출에 따라 로드될 것이다. 반면에 개별 프로퍼티는 요청할때 로드된다.	true | false	true
+		multipleResultSetsEnabled	한개의 구문에서 여러개의 ResultSet 을 허용할지의 여부(드라이버가 해당 기능을 지원해야 함)	true | false	true
+		useColumnLabel	칼럼명 대신에 칼럼라벨을 사용. 드라이버마다 조금 다르게 작동한다. 문서와 간단한 테스트를 통해 실제 기대하는 것처럼 작동하는지 확인해야 한다.	true | false	true
+		useGeneratedKeys	생성키에 대한 JDBC 지원을 허용. 지원하는 드라이버가 필요하다. true 로 설정하면 생성키를 강제로 생성한다. 일부 드라이버(예를들면, Derby)에서는 이 설정을 무시한다.	true | false	False
+		autoMappingBehavior	MyBatis 가 칼럼을 필드/프로퍼티에 자동으로 매핑할지와 방법에 대해 명시. PARTIAL 은 간단한 자동매핑만 할뿐, 내포된 결과에 대해서는 처리하지 않는다. FULL 은 처리가능한 모든 자동매핑을 처리한다.	NONE, PARTIAL, FULL	PARTIAL
+		defaultExecutorType	디폴트 실행자(executor) 설정. SIMPLE 실행자는 특별히 하는 것이 없다. REUSE 실행자는 PreparedStatement 를 재사용한다. BATCH 실행자는 구문을 재사용하고 수정을 배치처리한다.	SIMPLE REUSE BATCH	SIMPLE
+		defaultStatementTimeout	데이터베이스로의 응답을 얼마나 오래 기다릴지를 판단하는 타임아웃을 셋팅	양수	셋팅되지 않음(null)
+		safeRowBoundsEnabled	중첩구문내 RowBound 사용을 허용	true | false	False
+		mapUnderscoreToCamelCase	전통적인 데이터베이스 칼럼명 형태인 A_COLUMN을 CamelCase형태의 자바 프로퍼티명 형태인 aColumn으로 자동으로 매핑하도록 함	true | false	False
+		localCacheScope	마이바티스는 순환참조를 막거나 반복된 쿼리의 속도를 높히기 위해 로컬캐시를 사용한다. 디폴트 설정인 SESSION을 사용해서 동일 세션의 모든 쿼리를 캐시한다. localCacheScope=STATEMENT 로 설정하면 로컬 세션은 구문 실행할때만 사용하고 같은 SqlSession에서 두개의 다른 호출사이에는 데이터를 공유하지 않는다.	SESSION | STATEMENT	SESSION
+		jdbcTypeForNull	JDBC타입을 파라미터에 제공하지 않을때 null값을 처리한 JDBC타입을 명시한다. 일부 드라이버는 칼럼의 JDBC타입을 정의하도록 요구하지만 대부분은 NULL, VARCHAR 나 OTHER 처럼 일반적인 값을 사용해서 동작한다.	JdbcType 이늄. 대부분은 NULL, VARCHAR 나 OTHER 를 공통적으로 사용한다.	OTHER
+		lazyLoadTriggerMethods	늦은 로딩을 야기하는 객체의 메소드를 명시	메소드 이름을 나열하고 여러개일 경우 콤마(,) 로 구분	equals,clone,hashCode,toString
+		defaultScriptingLanguage	동적으로 SQL을 만들기 위해 기본적으로 사용하는 언어를 명시	타입별칭이나 패키지 경로를 포함한 클래스명	org.apache.ibatis.scripting.xmltags.XMLDynamicLanguageDriver
+		callSettersOnNulls	가져온 값이 null일때 setter나 맵의 put 메소드를 호출할지를 명시 Map.keySet() 이나 null값을 초기화할때 유용하다. int, boolean 등과 같은 원시타입은 null을 셋팅할 수 없다는 점은 알아두면 좋다.	true | false	false
+		logPrefix	마이바티스가 로거(logger) 이름에 추가할 접두사 문자열을 명시	문자열	셋팅하지 않음
+		logImpl	마이바티스가 사용할 로깅 구현체를 명시 이 설정을 사용하지 않으면 마이바티스가 사용할 로깅 구현체를 자동으로 찾는다.	SLF4J | LOG4J | LOG4J2 | JDK_LOGGING | COMMONS_LOGGING | STDOUT_LOGGING | NO_LOGGING	셋팅하지 않음
+		proxyFactory	마이바티스가 늦은 로딩을 처리할 객체를 생성할 때 사용할 프록시 툴을 명시	CGLIB | JAVASSIST	CGLIB
+	 -->
+	<settings>
+	  <setting name="cacheEnabled" value="true"/>
+	  <setting name="lazyLoadingEnabled" value="false"/>
+	  <setting name="multipleResultSetsEnabled" value="true"/>
+	  <setting name="useColumnLabel" value="true"/>
+	  <setting name="useGeneratedKeys" value="false"/>
+	  <setting name="autoMappingBehavior" value="PARTIAL"/>
+	  <setting name="defaultExecutorType" value="SIMPLE"/>
+	  <setting name="defaultStatementTimeout" value="25"/>
+	  <setting name="safeRowBoundsEnabled" value="false"/>
+	  <setting name="mapUnderscoreToCamelCase" value="false"/>
+	  <setting name="localCacheScope" value="SESSION"/>
+	  <setting name="jdbcTypeForNull" value="OTHER"/>
+	  <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="java.util.Map" alias="map"/>
+	</typeAliases>
+	
+</configuration>

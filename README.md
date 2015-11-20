@@ -9,3 +9,17 @@ spring security sample
 2.pom.xml이 있는 폴더에서 mvn package 후 엔터
 
 3.target폴더에 생성된 war파일 was에 임포트
+
+
+
+eclipse
+
+1.import 
+
+2.maven 
+
+3.Existing Maven Projects 
+
+4.앞축푼 폴더 선택 
+
+5.finish 

@@ -3,6 +3,7 @@ security
 
 spring security sample
 
+## Maven 사용시
 
 1.메이븐 설치 후 소스 파일을 다운 받은 경로로 이동.
 
@@ -12,7 +13,7 @@ spring security sample
 
 
 
-eclipse
+## eclipse 사용시
 
 1.import 
 

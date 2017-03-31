@@ -7,4 +7,3 @@ release.properties
 .classpath
 .project
 .springBeans
-src/main/webapp/META-INF/context.xml

@@ -14,6 +14,7 @@ ${errMsg }
 <form action='<c:url value="/user/login"/>' method="post">
 	<input type="text" name="email" id="email"/>
 	<input type="password" name="passwd" id="passwd"/>
+	<input id="remember_me" name="_spring_security_remember_me" type="checkbox">Remember me
 	<input type="submit" value="로그인">
 </form>
 <form action='<c:url value="/user/insertUser"/>' method="post">

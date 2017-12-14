@@ -23,8 +23,9 @@
 		<session-management>
 			<concurrency-control max-sessions="1" expired-url="/user/loginPage" error-if-maximum-exceeded="true"/>
 		</session-management>
-		<logout delete-cookies="true" logout-success-url="/user/loginPage" logout-url="/user/logout" invalidate-session="true"/>
+		<logout delete-cookies="JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE" logout-success-url="/user/loginPage" logout-url="/user/logout" invalidate-session="true"/>
 		<access-denied-handler ref="userDeniedHandler"/>
+		<remember-me key="nieeKey" token-validity-seconds="604800"/>
 	</http>
 	
 	<beans:bean id="userDeniedHandler"
@@ -34,14 +35,14 @@
 	<beans:bean id="userLoginFailureHandler"
 		class="com.min.study.user.service.UserLoginFailureHandler"></beans:bean>
 
-	<!-- <authentication-manager>
+	<authentication-manager>
 		<authentication-provider>
 			<user-service>
 				<user name="guest" authorities="ROLE_GUEST" password="guest" />
 				<user name="user" authorities="ROLE_USER" password="user" />
 			</user-service>
 		</authentication-provider>
-	</authentication-manager> -->
+	</authentication-manager>
 	
 	<!-- <jdbc-user-service data-source-ref="dataSource" id="userService"
 		users-by-username-query="SELECT EMAIL as username, PASSWD as password,ENABLED as enabled FROM user WHERE EMAIL=?"
@@ -49,7 +50,7 @@
 										FROM user u
 										WHERE EMAIL=?"/> -->
 										
-	<beans:bean id="userService" class="com.min.study.user.service.UserAuthenticationService">
+	<!-- <beans:bean id="userService" class="com.min.study.user.service.UserAuthenticationService">
 		<beans:constructor-arg name="sqlSession" ref="sqlSession" />
 	</beans:bean>										
 
@@ -59,7 +60,7 @@
 				<salt-source user-property="username"/>
 			</password-encoder>
 		</authentication-provider>
-	</authentication-manager>
+	</authentication-manager> -->
 	
 	<beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
 		<beans:constructor-arg name="strength" value="256"></beans:constructor-arg>
